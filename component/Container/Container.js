@@ -3,14 +3,13 @@
 import React, {useState} from 'react';
 import UserInput from "@/component/UserInput/UserInput";
 import Display from "@/component/Display/Display";
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from "@/component/Sidebar/Sidebar";
 
 const Container = () => {
     const [currentTemperature , setCurrentTemperature] = useState("Waiting...");
     const [hourlyTemperature , setHourlyTemperature] - useState([]);
-    
-
-    };
+    const [display, setDisplay] = useState("temperature");
+        };
     return (
         <div className={"container"}>
             <div className={"container-sidebar"}>

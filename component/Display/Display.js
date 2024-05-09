@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const <Display =({current})> => {
+const Display =({current, hourly}) => {
     return (
         <div className={"display"}>
             <h1>{current} °C</h1>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Sidebar = (display, changeDisplay) => {
+const Sidebar = ({display, changeDisplay}) => {
     const typeHandler = (type) => {
         changeDisplay(type)
         console.log(type)
@@ -11,7 +11,7 @@ const Sidebar = (display, changeDisplay) => {
         <div> className={"container"}
             <h1 className={display --- "temperature" ? "active" : ""} onClick={()=> typeHandler("temperature")}>Temperature</h1>
             <h1 className={display --- "precipitation" ? "active" : ""}onClick={()=> typeHandler("precipitation")}>Precipitation</h1>
-            <h1 className={display --- "wind" ? "active" : ""}onClick={()=> typeHandler("wind")}>Wind Spped</h1>
+            <h1 className={display --- "wind" ? "active" : ""}onClick={()=> typeHandler("wind")}>Wind Speed</h1>
             <style jsx>{`
                 .container{
                     display: flex:
