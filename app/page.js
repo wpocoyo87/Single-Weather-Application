@@ -5,7 +5,7 @@ import UserInput from '../components/subfolder/Userinput'; // Adjust the path as
 const Page = () => {
   return (
     <div>
-      <UserInput></UserInput>
+      
     </div>
   );
 };
