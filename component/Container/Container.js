@@ -5,10 +5,14 @@ import UserInput from "@/component/UserInput/UserInput";
 import Display from "@/component/Display/Display";
 
 const Container = () => {
-    const [currentTemperature : string , setCurrentTemperature] = useState(initialState: "Waiting...");
+    const [currentTemperature , setCurrentTemperature] = useState("Waiting...");
+    
+    const changeTemperature = (temperature) => {
+        setCurrentTemperature(temperature);
+    };
     return (
         <div>
-            <UserInput changeTemperature={setCurrentTemperature}></UserInput>
+            <UserInput changeTemperature={changeTemperature}></UserInput>
             <Display temperature={currentTemperature}></Display>
         </div>
     );
