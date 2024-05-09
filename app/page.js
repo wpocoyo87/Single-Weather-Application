@@ -1,8 +1,9 @@
 // page.js
-import React from 'react';
-import UserInput from '/UserInput'; // Adjust the path as needed
+import image from "next/image";
+import styles from ".page.module.css"
+import UserInput from "@/UserInput/UserInput"; // Adjust the path as needed
 
-const Page = () => {
+export default function Home() {
   return (
     <div>
       
@@ -10,5 +11,4 @@ const Page = () => {
   );
 };
 
-export default Page;
 
