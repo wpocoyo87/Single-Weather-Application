@@ -1,10 +1,14 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// page.js
+import React from 'react';
+import UserInput from './UserInput'; // Adjust the path as needed
 
-export default function Home() {
+const Page = () => {
   return (
     <div>
       <UserInput></UserInput>
     </div>
   );
-}
+};
+
+export default Page;
+
