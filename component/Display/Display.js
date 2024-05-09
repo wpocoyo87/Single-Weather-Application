@@ -2,10 +2,21 @@
 
 import React from 'react';
 
-const <Display =({temperature})> => {
+const <Display =({current})> => {
     return (
-        <div>
-            <h1>{temperature} °C</h1>
+        <div className={"display"}>
+            <h1>{current} °C</h1>
+            <h2>{JSON.stringify(hourly)}</h2>
+            <style jsx>{`
+            .display{
+                display: flex;
+                justify-content: flex-start;
+                justify-item; center;
+            }
+            
+            `}
+
+            </style>
         </div>
     );
 };
