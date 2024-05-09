@@ -3,7 +3,7 @@ import React from 'react';
 const <Display =({temperature})> => {
     return (
         <div>
-            <h1>{temperature}</h1>
+            <h1>{temperature} °C</h1>
         </div>
     );
 };

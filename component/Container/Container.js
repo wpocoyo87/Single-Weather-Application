@@ -1,14 +1,14 @@
 "use Client"
 
-import React from 'react';
-import UserInput from '../UserInput/UserInput';
-import Display from '../UserInput/UserInput';
+import React, {useState} from 'react';
+import UserInput from "@/component/UserInput/UserInput";
+import Display from "@/component/Display/Display";
 
 const Container = () => {
-    const [currentTemperature : string , setCurrentTemperature] = useState(initialState "Waiting...");
+    const [currentTemperature : string , setCurrentTemperature] = useState(initialState: "Waiting...");
     return (
         <div>
-            <UserInput></UserInput>
+            <UserInput changeTemperature={setCurrentTemperature}></UserInput>
             <Display temperature={currentTemperature}></Display>
         </div>
     );
