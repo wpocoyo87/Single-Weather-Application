@@ -1,11 +1,9 @@
-import image from "next/image";
-import styles from "./page.module.css";
+
+import Container from "@/component/UserInput/UserInput";
 
 export default function Home() {
   return (
-    <div>
-      <UserInout></UserInout>
-    </div>
+    <Container></Container>
   )
 }
 
