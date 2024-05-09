@@ -1,6 +1,6 @@
 // page.js
 import React from 'react';
-import UserInput from '../components/subfolder/Userinput'; // Adjust the path as needed
+import UserInput from '/UserInput'; // Adjust the path as needed
 
 const Page = () => {
   return (
