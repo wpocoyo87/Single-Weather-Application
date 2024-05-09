@@ -1,14 +1,11 @@
-// page.js
 import image from "next/image";
-import styles from ".page.module.css"
-import UserInput from "@/UserInput/UserInput"; // Adjust the path as needed
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div>
-      
+      <UserInout></UserInout>
     </div>
-  );
-};
-
+  )
+}
 
