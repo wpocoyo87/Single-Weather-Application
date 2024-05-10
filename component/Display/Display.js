@@ -28,13 +28,13 @@ const Display = ({ hourly, unit, selectedDataType }) => {
                     </div>
                 );
             case 'wind_speed':
-                console.log(hourly);    
-            return (
+                console.log(hourly);
+                    return (
                     <div className="hourly-column">
                         <p>Wind Speed</p>
                         {hourly && hourly.wind_speed_10m && hourly.wind_speed_10m.map((speed, index) => (
-                            <p key={index}>{speed} {unit}</p>
-                        ))}
+                        <p key={index}>{speed} {unit}</p>
+                    ))}
                     </div>
                 );
             default:
