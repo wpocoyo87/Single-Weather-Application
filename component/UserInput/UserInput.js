@@ -2,87 +2,87 @@
 
 import React, {useState} from 'react';
 
-const UserInput = ({changeTemperature}) => {
-    const [lat, setLat] = useState("0")
 
-    const fetchTemperatureData = async () => {
-       const data = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}3.05152&longitude=101.5616&hourly=temperature_2m,precipitation,wind_speed_10m&timezone=auto`)
-       console.log(data)
+const UserInput = ({current, hourly}) => {
+    const [lat, setLat] = useState("0");
+    const [long, setLong] = useState("0"); // Step 1: State variable for longitude
 
-       return data.json()
-
+    const fetchWeatherData = async () => {
+                                                                                                    // Step 3: Include longitude in API request URL
+        const data =  await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,precipitation,wind_speed_10m&hourly=temperature_2m,precipitation,wind_speed_10m&forecast_days=1`)
+        return data.json()
     }
+
 
     const onClickHandler = () => {
-        console.log(lat)
-        fetchTemperatureData().then(jsonData => {
-            console.log("onClickHandler",jsonData)
-            current(jsonData.current.temperature_2m);
-            hourly(jsonData.hourly.temperature_2m);
+        fetchWeatherData().then(data => {
+            console.log("onClickHandler", data);
+            current(data.current.temperature_2m);
+            hourly(data.hourly);
         });
-    };
-           
+       
+    }
     return (
-        <div>
+        <div className={"user-input"}>
             <label>
                 <span>Latitude</span>
-                <input type={"text"} placeholder={"latitude"} value={lat} onChange={e => setLat(e.target.value)} />
+                <input type={"text"} placeholder={"Latitude"} value={lat} onChange={e => setLat(e.target.value)}/>
             </label>
 
             <label>
-                <span>Longitude</span>
-                <input type={"text"} placeholder={"Longitude"} />
+                <span>Longitude</span>                                 {/* Step 2: Update longitude state */}
+                <input type={"text"} placeholder={"Longitude"} value={long} onChange={e => setLong(e.target.value)} /> 
             </label>
 
+
             <button onClick={onClickHandler}>Submit</button>
-
             <style jsx>{`
-    .user-input {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        gap: 20px;
-        padding: 
-    }
-    
-    label {
-        display: flex;
-        flex-direction: row;
-        width: 500px; 
-        padding: 10px; 
-        justify-content: center;
-    }
+                .user-input {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    gap: 20px;
+                }
 
-    span {
-        display: flex;
-        flex: 1 1;
-    }
 
-    input {
-        display: flex;
-        flex: 5 5;
-        font-size: 1.15em;
-        padding: 10px;
-        background: white;
-        border:none;
-        border-bottom; grey 1px solid;
+                label {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 10px;
+                    justify-content: center;
+                    flex: 2 2;
+                }
 
-    }
+                span {
+                    display: flex;
+                    align-items: center;
+                    flex: 1 1;
+                }
 
-    button {
-        background-color: white;
-        color: black;
-        width: 200px;
-        font-size: 1.15em;
-        border : none;
-    }
+                input {
+                    display: flex;
+                    flex: 5 5;
+                    font-size: 1.15em;
+                    padding: 10px;
+                    border: none;
+                    border-bottom: grey 1px solid;
+                }
 
-    button:active{
-        background-color: lightgray;
 
-    }
-`}</style>
-          
+                button {
+                    background-color: white;
+                    width: 200px;
+                    flex: 1 1;
+                    color: black;
+                    font-size: 1.15em;
+                    border: none;
+                }
+
+                button:active {
+                    background-color: lightgray;
+                }
+
+            `}</style>
         </div>
     );
 };

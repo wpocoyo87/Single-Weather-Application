@@ -1,5 +1,5 @@
 
-import Container from "@/component/UserInput/UserInput";
+import Container from "@/component/Container/Container";
 
 export default function Home() {
   return (

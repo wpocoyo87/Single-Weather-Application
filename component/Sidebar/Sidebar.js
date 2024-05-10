@@ -4,19 +4,19 @@ import React from 'react';
 
 const Sidebar = ({display, changeDisplay}) => {
     const typeHandler = (type) => {
-        changeDisplay(type)
-        console.log(type)
-    }
+        changeDisplay(type);
+        console.log(type);
+    };
     return (
-        <div> className={"container"}
-            <h1 className={display --- "temperature" ? "active" : ""} onClick={()=> typeHandler("temperature")}>Temperature</h1>
-            <h1 className={display --- "precipitation" ? "active" : ""}onClick={()=> typeHandler("precipitation")}>Precipitation</h1>
-            <h1 className={display --- "wind" ? "active" : ""}onClick={()=> typeHandler("wind")}>Wind Speed</h1>
+        <div className="container">
+            <h1 className={display === "temperature" ? "active" : ""} onClick={()=> typeHandler("temperature")}>Temperature</h1>
+            <h1 className={display === "precipitation" ? "active" : ""} onClick={()=> typeHandler("precipitation")}>Precipitation</h1>
+            <h1 className={display === "wind_speed" ? "active" : ""} onClick={()=> typeHandler("wind_speed")}>Wind Speed</h1>
             <style jsx>{`
                 .container{
                     display: flex:
                     flex-direction: column;
-                    align-item: center;
+                    align-items: center;
                     justify-content: center;
 
                     padding:20px;
@@ -40,7 +40,7 @@ const Sidebar = ({display, changeDisplay}) => {
                     height: 60%;
                     background: red;
                     top: 50%;
-                    transfom: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
                 }
             `}
             </style>
