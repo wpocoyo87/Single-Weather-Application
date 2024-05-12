@@ -9,14 +9,14 @@ export const fetchLocationData = async (lat, long) => {
       throw new Error("Failed to fetch location data");
     }
     const data = await response.json();
-    console.log("Location data:", data); // Log the fetched data
+    console.log("Location data:", data);
     if (!data.display_name) {
       throw new Error("Location data not found");
     }
     return data.display_name;
   } catch (error) {
     console.error("Error fetching location data:", error);
-    throw error; // Rethrow the error to handle it in the parent component
+    throw error;
   }
 };
 
@@ -50,7 +50,6 @@ const Location = ({ lat, long }) => {
       }
     };
 
-    // Fetch data only if both lat and long are not blank or 0
     if (
       lat !== undefined &&
       long !== undefined &&

@@ -11,10 +11,10 @@ export const fetchWeatherData = async (lat, long) => {
 
 const UserInput = ({ showCurrentData, hourly, handleCoordinatesUpdate }) => {
   const [lat, setLat] = useState("0");
-  const [long, setLong] = useState("0"); // Step 1: State variable for longitude
+  const [long, setLong] = useState("0");
 
   const onClickHandler = () => {
-    fetchWeatherData(lat, long) // Pass the latitude and longitude values to the fetchWeatherData function
+    fetchWeatherData(lat, long)
       .then((data) => {
         console.log("onClickHandler", data);
         if (data.current) {
@@ -55,7 +55,7 @@ const UserInput = ({ showCurrentData, hourly, handleCoordinatesUpdate }) => {
       </label>
 
       <label>
-        <span>Longitude</span> {/* Step 2: Update longitude state */}
+        <span>Longitude</span>
         <input
           type={"text"}
           placeholder={"Longitude"}

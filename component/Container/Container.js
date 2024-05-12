@@ -8,20 +8,18 @@ import Location, { fetchLocationData } from "@/component/Sidebar/Location";
 
 function Container() {
   const [CurrentCollectedData, setCurrentCollectedData] =
-    useState("Waiting..."); // Initialize temperature state as "Waiting..."
+    useState("Waiting...");
   const [HourlyCollectedData, setHourlyCollectedData] = useState([]);
   const [selectedDataType, setSelectedDataType] = useState("temperature");
   const [lat, setLatitude] = useState(0);
   const [long, setLongitude] = useState(0);
   const [locationName, setLocationName] = useState("Waiting...");
-  const [currentDate, setCurrentDate] = useState(""); // Initialize current date state
+  const [currentDate, setCurrentDate] = useState("");
 
-  // Fetch the current date when the component mounts
   useEffect(() => {
     setCurrentDate(new Date().toLocaleString());
   }, []);
 
-  // Function to handle latitude and longitude updates
   const handleCoordinatesUpdate = (lat, long) => {
     setLatitude(lat);
     setLongitude(long);
@@ -35,7 +33,6 @@ function Container() {
         setLocationName("Failed to fetch location");
       });
 
-    // Call the function to fetch weather data based on latitude and longitude
     if (lat !== 0 && long !== 0 && lat.trim() !== "" && long.trim() !== "") {
       fetchWeatherData(lat, long)
         .then((data) => {
@@ -59,8 +56,8 @@ function Container() {
         <Sidebar
           changeDisplay={setSelectedDataType}
           display={selectedDataType}
-          latitude={lat} // Pass latitude prop
-          longitude={long} // Pass longitude prop
+          latitude={lat}
+          longitude={long}
           currentDate={currentDate}
           suppressHydrationWarning={true}
           locationName={locationName}
@@ -73,9 +70,7 @@ function Container() {
           hourly={setHourlyCollectedData}
           handleCoordinatesUpdate={handleCoordinatesUpdate}
         />
-        <div suppressHydrationWarning={true}>
-          {/* Isi dari div yang menyebabkan peringatan */}
-        </div>
+        <div suppressHydrationWarning={true}></div>
         <Display
           showCurrentData={CurrentCollectedData}
           hourly={HourlyCollectedData}

@@ -29,18 +29,14 @@ const Display = ({ showCurrentData, hourly, unit, selectedDataType }) => {
     return <div className="current-data">{currentData}</div>;
   };
 
-  // Rendering function for hourly data
   const renderHourlyData = () => {
-    // Check if hourly data is available
     if (!hourly || !hourly.temperature_2m) return null;
 
-    // Render hourly data based on selected data type
     let hourlyData;
     switch (selectedDataType) {
       case "temperature":
         hourlyData = hourly.temperature_2m.map((temp, index) => (
           <p key={index}>
-            {/* Display the time and temperature with 5cm space in between */}
             {moment(hourly.time[index]).format("HH:mm")}{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {temp} {unit}
@@ -50,7 +46,6 @@ const Display = ({ showCurrentData, hourly, unit, selectedDataType }) => {
       case "precipitation":
         hourlyData = hourly.precipitation.map((precip, index) => (
           <p key={index}>
-            {/* Display the time and precipitation with 5cm space in between */}
             {moment(hourly.time[index]).format("HH:mm")}{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {precip} {unit}
@@ -60,7 +55,6 @@ const Display = ({ showCurrentData, hourly, unit, selectedDataType }) => {
       case "wind_speed":
         hourlyData = hourly.wind_speed_10m.map((speed, index) => (
           <p key={index}>
-            {/* Display the time and wind speed with 5cm space in between */}
             {moment(hourly.time[index]).format("HH:mm")}{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {speed} {unit}
